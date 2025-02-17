@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flower Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">BlossomParadise</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#catalog">Catalog</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#cart" id="cart-link"
+              >Cart (<span id="cart-count">0</span>)</a
+            >
+          </li>
+        </ul>
+        <div class="hamburger" onclick="toggleNavbar()">☰</div>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <h1>Welcome to BlossomParadise!</h1>
+      <p>Your one-stop shop for fresh and beautiful flowers.</p>
+      <button class="button" onclick="scrollToSection('#catalog')">
+        Shop Now
+      </button>
+    </section>
+
+    <section class="carousel-logo" id="carousel">
+      <h2>Featured Flowers</h2>
+      <div class="carousel-container">
+        <div class="carousel-item active">
+          <img class="flowers-photo" src="./img/roses1.jpg" alt="Flower 1" />
+          <p>Beautiful Roses</p>
+        </div>
+        <div class="carousel-item">
+          <img class="flowers-photo" src="./img/Lilies.jpg" alt="Flower 2" />
+          <p>Fresh Lilies</p>
+        </div>
+        <div class="carousel-item">
+          <img class="flowers-photo" src="./img/Orchids.jpg" alt="Flower 3" />
+          <p>Elegant Orchids</p>
+        </div>
+        <button class="prev" onclick="moveCarousel('prev')">❮</button>
+        <button class="next" onclick="moveCarousel('next')">❯</button>
+      </div>
+    </section>
+
+    <section class="section-flowers" id="catalog">
+      <h2>Our Flower Collection</h2>
+      <div class="product-cards">
+        <div class="product-card" onclick="addToCart('Roses', 20)">
+          <img src="./img/roses1.jpg" alt="Roses" />
+          <h3>Roses</h3>
+          <p>$20</p>
+        </div>
+        <div class="product-card" onclick="addToCart('Lilies', 15)">
+          <img src="./img/Lilies.jpg" alt="Lilies" />
+          <h3>Lilies</h3>
+          <p>$15</p>
+        </div>
+        <div class="product-card" onclick="addToCart('Orchids', 25)">
+          <img src="./img/Orchids.jpg" alt="Orchids" />
+          <h3>Orchids</h3>
+          <p>$25</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-cart" id="cart">
+      <h2 class="name-cart">Your Cart</h2>
+      <div id="cart-items">
+        <p class="text">Your cart is empty.</p>
+      </div>
+      <button class="button-checkout" onclick="checkout()">Checkout</button>
+    </section>
+
+    <section class="section-contact" id="contact">
+      <h2>Contact Us</h2>
+      <form id="contact-form" onsubmit="return validateContactForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br /><br />
+
+        <button class="button-send" type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 FlowerShop. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
